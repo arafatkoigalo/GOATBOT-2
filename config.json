@@ -51,11 +51,11 @@
   "dashBoard": {
     "enable": true,
     "expireVerifyCode": 300000,
-    "port": 3001
+    "port": 4000
   },
   "serverUptime": {
     "enable": false,
-    "port": 3001,
+    "port": 4000,
     "socket": {
       "enable": true,
       "channelName": "uptime",
@@ -140,3 +140,4 @@
     "notes": "Document here: https://github.com/ntkhang03/fb-chat-api/blob/master/DOCS.md#apisetoptionsoptions "
   }
 }
+  By: Emmanuel Okeh 😎
