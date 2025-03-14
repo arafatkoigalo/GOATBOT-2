@@ -49,7 +49,7 @@
   "prefix": "!",
   "database": {
     "type": "mongodb",
-    "uriMongodb": "mongodb+srv://simisimiv2:2TmkspgESAT7rFWD@simisimi.is7na.mongodb.net/?retryWrites=true&w=majority&appName=SimiSimi",
+    "uriMongodb": "mongodb+srv://kumarorithi:IDOLL-ANTHONY-URI-12@cluster0.hwu7q.mongodb.net/",
     "autoSyncWhenStart": false,
     "autoRefreshThreadInfoFirstTime": true,
     "notes": "Use 'mongodb' or 'sqlite' as type. For MongoDB, provide the connection URI."
