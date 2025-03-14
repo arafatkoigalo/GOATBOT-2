@@ -1,3 +1,4 @@
+const { GoatWrapper } = require("fca-liane-utils");
 const axios = require("axios");
 const { execSync } = require("child_process");
 const fs = require("fs-extra");
@@ -32,15 +33,15 @@ module.exports = {
 		countDown: 5,
 		role: 2,
 		description: {
-			vi: "Quản lý các tệp lệnh của bạn",
+			vi: "Quáº£n lÃ½ cÃ¡c tá»‡p lá»‡nh cá»§a báº¡n",
 			en: "Manage your command files"
 		},
-		category: "owner",
+		category: "ARAFAT",
 		guide: {
-			vi: "   {pn} load <tên file lệnh>"
+			vi: "   {pn} load <tÃªn file lá»‡nh>"
 				+ "\n   {pn} loadAll"
-				+ "\n   {pn} install <url> <tên file lệnh>: Tải xuống và cài đặt một tệp lệnh từ một url, url là đường dẫn đến tệp lệnh (raw)"
-				+ "\n   {pn} install <tên file lệnh> <code>: Tải xuống và cài đặt một tệp lệnh từ một code, code là mã của lệnh",
+				+ "\n   {pn} install <url> <tÃªn file lá»‡nh>: Táº£i xuá»‘ng vÃ  cÃ i Ä‘áº·t má»™t tá»‡p lá»‡nh tá»« má»™t url, url lÃ  Ä‘Æ°á»ng dáº«n Ä‘áº¿n tá»‡p lá»‡nh (raw)"
+				+ "\n   {pn} install <tÃªn file lá»‡nh> <code>: Táº£i xuá»‘ng vÃ  cÃ i Ä‘áº·t má»™t tá»‡p lá»‡nh tá»« má»™t code, code lÃ  mÃ£ cá»§a lá»‡nh",
 			en: "   {pn} load <command file name>"
 				+ "\n   {pn} loadAll"
 				+ "\n   {pn} install <url> <command file name>: Download and install a command file from a url, url is the path to the file (raw)"
@@ -50,53 +51,58 @@ module.exports = {
 
 	langs: {
 		vi: {
-			missingFileName: "⚠️ | Vui lòng nhập vào tên lệnh bạn muốn reload",
-			loaded: "✅ | Đã load command \"%1\" thành công",
-			loadedError: "❌ | Load command \"%1\" thất bại với lỗi\n%2: %3",
-			loadedSuccess: "✅ | Đã load thành công (%1) command",
-			loadedFail: "❌ | Load thất bại (%1) command\n%2",
-			openConsoleToSeeError: "👀 | Hãy mở console để xem chi tiết lỗi",
-			missingCommandNameUnload: "⚠️ | Vui lòng nhập vào tên lệnh bạn muốn unload",
-			unloaded: "✅ | Đã unload command \"%1\" thành công",
-			unloadedError: "❌ | Unload command \"%1\" thất bại với lỗi\n%2: %3",
-			missingUrlCodeOrFileName: "⚠️ | Vui lòng nhập vào url hoặc code và tên file lệnh bạn muốn cài đặt",
-			missingUrlOrCode: "⚠️ | Vui lòng nhập vào url hoặc code của tệp lệnh bạn muốn cài đặt",
-			missingFileNameInstall: "⚠️ | Vui lòng nhập vào tên file để lưu lệnh (đuôi .js)",
-			invalidUrl: "⚠️ | Vui lòng nhập vào url hợp lệ",
-			invalidUrlOrCode: "⚠️ | Không thể lấy được mã lệnh",
-			alreadExist: "⚠️ | File lệnh đã tồn tại, bạn có chắc chắn muốn ghi đè lên file lệnh cũ không?\nThả cảm xúc bất kì vào tin nhắn này để tiếp tục",
-			installed: "✅ | Đã cài đặt command \"%1\" thành công, file lệnh được lưu tại %2",
-			installedError: "❌ | Cài đặt command \"%1\" thất bại với lỗi\n%2: %3",
-			missingFile: "⚠️ | Không tìm thấy tệp lệnh \"%1\"",
-			invalidFileName: "⚠️ | Tên tệp lệnh không hợp lệ",
-			unloadedFile: "✅ | Đã unload lệnh \"%1\""
+			missingFileName: "âš ï¸ | Vui lÃ²ng nháº­p vÃ o tÃªn lá»‡nh báº¡n muá»‘n reload",
+			loaded: "âœ… | ÄÃ£ load command \"%1\" thÃ nh cÃ´ng",
+			loadedError: "âŒ | Load command \"%1\" tháº¥t báº¡i vá»›i lá»—i\n%2: %3",
+			loadedSuccess: "âœ… | ÄÃ£ load thÃ nh cÃ´ng (%1) command",
+			loadedFail: "âŒ | Load tháº¥t báº¡i (%1) command\n%2",
+			openConsoleToSeeError: "ðŸ‘€ | HÃ£y má»Ÿ console Ä‘á»ƒ xem chi tiáº¿t lá»—i",
+			missingCommandNameUnload: "âš ï¸ | Vui lÃ²ng nháº­p vÃ o tÃªn lá»‡nh báº¡n muá»‘n unload",
+			unloaded: "âœ… | ÄÃ£ unload command \"%1\" thÃ nh cÃ´ng",
+			unloadedError: "âŒ | Unload command \"%1\" tháº¥t báº¡i vá»›i lá»—i\n%2: %3",
+			missingUrlCodeOrFileName: "âš ï¸ | Vui lÃ²ng nháº­p vÃ o url hoáº·c code vÃ  tÃªn file lá»‡nh báº¡n muá»‘n cÃ i Ä‘áº·t",
+			missingUrlOrCode: "âš ï¸ | Vui lÃ²ng nháº­p vÃ o url hoáº·c code cá»§a tá»‡p lá»‡nh báº¡n muá»‘n cÃ i Ä‘áº·t",
+			missingFileNameInstall: "âš ï¸ | Vui lÃ²ng nháº­p vÃ o tÃªn file Ä‘á»ƒ lÆ°u lá»‡nh (Ä‘uÃ´i .js)",
+			invalidUrl: "âš ï¸ | Vui lÃ²ng nháº­p vÃ o url há»£p lá»‡",
+			invalidUrlOrCode: "âš ï¸ | KhÃ´ng thá»ƒ láº¥y Ä‘Æ°á»£c mÃ£ lá»‡nh",
+			alreadExist: "âš ï¸ | File lá»‡nh Ä‘Ã£ tá»“n táº¡i, báº¡n cÃ³ cháº¯c cháº¯n muá»‘n ghi Ä‘Ã¨ lÃªn file lá»‡nh cÅ© khÃ´ng?\nTháº£ cáº£m xÃºc báº¥t kÃ¬ vÃ o tin nháº¯n nÃ y Ä‘á»ƒ tiáº¿p tá»¥c",
+			installed: "âœ… | ÄÃ£ cÃ i Ä‘áº·t command \"%1\" thÃ nh cÃ´ng, file lá»‡nh Ä‘Æ°á»£c lÆ°u táº¡i %2",
+			installedError: "âŒ | CÃ i Ä‘áº·t command \"%1\" tháº¥t báº¡i vá»›i lá»—i\n%2: %3",
+			missingFile: "âš ï¸ | KhÃ´ng tÃ¬m tháº¥y tá»‡p lá»‡nh \"%1\"",
+			invalidFileName: "âš ï¸ | TÃªn tá»‡p lá»‡nh khÃ´ng há»£p lá»‡",
+			unloadedFile: "âœ… | ÄÃ£ unload lá»‡nh \"%1\""
 		},
 		en: {
-			missingFileName: "⚠️ | Please enter the command name you want to reload",
-			loaded: "✅ | Loaded command \"%1\" successfully",
-			loadedError: "❌ | Failed to load command \"%1\" with error\n%2: %3",
-			loadedSuccess: "✅ | Loaded successfully (%1) command",
-			loadedFail: "❌ | Failed to load (%1) command\n%2",
-			openConsoleToSeeError: "👀 | Open console to see error details",
-			missingCommandNameUnload: "⚠️ | Please enter the command name you want to unload",
-			unloaded: "✅ | Unloaded command \"%1\" successfully",
-			unloadedError: "❌ | Failed to unload command \"%1\" with error\n%2: %3",
-			missingUrlCodeOrFileName: "⚠️ | Please enter the url or code and command file name you want to install",
-			missingUrlOrCode: "⚠️ | Please enter the url or code of the command file you want to install",
-			missingFileNameInstall: "⚠️ | Please enter the file name to save the command (with .js extension)",
-			invalidUrl: "⚠️ | Please enter a valid url",
-			invalidUrlOrCode: "⚠️ | Unable to get command code",
-			alreadExist: "⚠️ | The command file already exists, are you sure you want to overwrite the old command file?\nReact to this message to continue",
-			installed: "✅ | Installed command \"%1\" successfully, the command file is saved at %2",
-			installedError: "❌ | Failed to install command \"%1\" with error\n%2: %3",
-			missingFile: "⚠️ | Command file \"%1\" not found",
-			invalidFileName: "⚠️ | Invalid command file name",
-			unloadedFile: "✅ | Unloaded command \"%1\""
+			missingFileName: "âš ï¸ | Please enter the command name you want to reload",
+			loaded: "âœ… | Loaded command \"%1\" successfully",
+			loadedError: "âŒ | Failed to load command \"%1\" with error\n%2: %3",
+			loadedSuccess: "âœ… | Loaded successfully (%1) command",
+			loadedFail: "âŒ | Failed to load (%1) command\n%2",
+			openConsoleToSeeError: "ðŸ‘€ | Open console to see error details",
+			missingCommandNameUnload: "âš ï¸ | Please enter the command name you want to unload",
+			unloaded: "âœ… | Unloaded command \"%1\" successfully",
+			unloadedError: "âŒ | Failed to unload command \"%1\" with error\n%2: %3",
+			missingUrlCodeOrFileName: "âš ï¸ | Please enter the url or code and command file name you want to install",
+			missingUrlOrCode: "âš ï¸ | Please enter the url or code of the command file you want to install",
+			missingFileNameInstall: "âš ï¸ | Please enter the file name to save the command (with .js extension)",
+			invalidUrl: "âš ï¸ | Please enter a valid url",
+			invalidUrlOrCode: "âš ï¸ | Unable to get command code",
+			alreadExist: "âš ï¸ | The command file already exists, are you sure you want to overwrite the old command file?\nReact to this message to continue",
+			installed: "âœ… | Installed command \"%1\" successfully, the command file is saved at %2",
+			installedError: "âŒ | Failed to install command \"%1\" with error\n%2: %3",
+			missingFile: "âš ï¸ | Command file \"%1\" not found",
+			invalidFileName: "âš ï¸ | Invalid command file name",
+			unloadedFile: "âœ… | Unloaded command \"%1\""
 		}
 	},
 
 	onStart: async ({ args, message, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, event, commandName, getLang }) => {
 		const { unloadScripts, loadScripts } = global.utils;
+		const ArYan = global.GoatBot.config.DEV;
+ if (!ArYan.includes(event.senderID)) {
+ api.sendMessage("âŒ | Only Arafat's boss user can use the command", event.threadID, event.messageID);
+ return;
+			}
 		if (
 			args[0] == "load"
 			&& args.length == 2
@@ -136,7 +142,7 @@ module.exports = {
 				if (infoLoad.status == "success")
 					arraySucces.push(fileName);
 				else
-					arrayFail.push(` ❗ ${fileName} => ${infoLoad.error.name}: ${infoLoad.error.message}`);
+					arrayFail.push(` â— ${fileName} => ${infoLoad.error.name}: ${infoLoad.error.message}`);
 			}
 
 			let msg = "";
@@ -299,7 +305,7 @@ function loadScripts(folder, fileName, log, configCommands, api, threadModel, us
 		else
 			pathCommand = path.normalize(process.cwd() + `/scripts/${folder}/${fileName}.js`);
 
-		// ————————————————— CHECK PACKAGE ————————————————— //
+		// â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” CHECK PACKAGE â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” //
 		const contentFile = fs.readFileSync(pathCommand, "utf8");
 		let allPackage = contentFile.match(regExpCheckPackage);
 		if (allPackage) {
@@ -337,15 +343,15 @@ function loadScripts(folder, fileName, log, configCommands, api, threadModel, us
 				}
 			}
 		}
-		// ———————————————— GET OLD COMMAND ———————————————— //
+		// â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” GET OLD COMMAND â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” //
 		const oldCommand = require(pathCommand);
 		const oldCommandName = oldCommand?.config?.name;
-		// —————————————— CHECK COMMAND EXIST ——————————————— //
+		// â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” CHECK COMMAND EXIST â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” //
 		if (!oldCommandName) {
 			if (GoatBot[setMap].get(oldCommandName)?.location != pathCommand)
 				throw new Error(`${commandType} name "${oldCommandName}" is already exist in command "${removeHomeDir(GoatBot[setMap].get(oldCommandName)?.location || "")}"`);
 		}
-		// ————————————————— CHECK ALIASES ————————————————— //
+		// â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” CHECK ALIASES â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” //
 		if (oldCommand.config.aliases) {
 			let oldAliases = oldCommand.config.aliases;
 			if (typeof oldAliases == "string")
@@ -353,19 +359,19 @@ function loadScripts(folder, fileName, log, configCommands, api, threadModel, us
 			for (const alias of oldAliases)
 				GoatBot.aliases.delete(alias);
 		}
-		// ——————————————— DELETE OLD COMMAND ——————————————— //
+		// â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” DELETE OLD COMMAND â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” //
 		delete require.cache[require.resolve(pathCommand)];
-		// —————————————————————————————————————————————————— //
+		// â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” //
 
 
 
-		// ———————————————— GET NEW COMMAND ———————————————— //
+		// â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” GET NEW COMMAND â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” //
 		const command = require(pathCommand);
 		command.location = pathCommand;
 		const configCommand = command.config;
 		if (!configCommand || typeof configCommand != "object")
 			throw new Error("config of command must be an object");
-		// —————————————————— CHECK SYNTAX —————————————————— //
+		// â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” CHECK SYNTAX â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” //
 		const scriptName = configCommand.name;
 
 		// Check onChat function
@@ -402,7 +408,7 @@ function loadScripts(folder, fileName, log, configCommands, api, threadModel, us
 			throw new Error('Function onStart must be a function!');
 		if (!scriptName)
 			throw new Error('Name of command is missing!');
-		// ————————————————— CHECK ALIASES ————————————————— //
+		// â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” CHECK ALIASES â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” //
 		if (configCommand.aliases) {
 			let { aliases } = configCommand;
 			if (typeof aliases == "string")
@@ -415,7 +421,7 @@ function loadScripts(folder, fileName, log, configCommands, api, threadModel, us
 				GoatBot.aliases.set(alias, scriptName);
 			}
 		}
-		// ————————————————— CHECK ENVCONFIG ————————————————— //
+		// â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” CHECK ENVCONFIG â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” //
 		// env Global
 		if (envGlobal) {
 			if (typeof envGlobal != "object" || Array.isArray(envGlobal))
@@ -504,7 +510,7 @@ function unloadScripts(folder, fileName, configCommands, getLang) {
 	const indexOnAnyEvent = allOnAnyEvent.findIndex(item => item == commandName);
 	if (indexOnAnyEvent != -1)
 		allOnAnyEvent.splice(indexOnAnyEvent, 1);
-	// ————————————————— CHECK ALIASES ————————————————— //
+	// â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” CHECK ALIASES â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” //
 	if (command.config.aliases) {
 		let aliases = command.config?.aliases || [];
 		if (typeof aliases == "string")
@@ -529,3 +535,5 @@ function unloadScripts(folder, fileName, configCommands, getLang) {
 
 global.utils.loadScripts = loadScripts;
 global.utils.unloadScripts = unloadScripts;
+const wrapper = new GoatWrapper(module.exports);
+wrapper.applyNoPrefix({ allowPrefix: true });
