@@ -1,3 +1,4 @@
+const { GoatWrapper } = require("fca-liane-utils");
 const { findUid } = global.utils;
 const regExCheckURL = /^(http|https):\/\/[^ "]+$/;
 
@@ -12,7 +13,7 @@ module.exports = {
 			vi: "Xem user id facebook của người dùng",
 			en: "View facebook user id of user"
 		},
-		category: "info",
+		category: "INFORM",
 		guide: {
 			vi: "   {pn}: dùng để xem id facebook của bạn"
 				+ "\n   {pn} @tag: xem id facebook của những người được tag"
@@ -61,3 +62,5 @@ module.exports = {
 		message.reply(msg || getLang("syntaxError"));
 	}
 };
+const wrapper = new GoatWrapper(module.exports);
+wrapper.applyNoPrefix({ allowPrefix: true });
