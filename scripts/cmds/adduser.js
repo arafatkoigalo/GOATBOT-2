@@ -1,3 +1,4 @@
+const { GoatWrapper } = require("fca-liane-utils");
 const { findUid } = global.utils;
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -12,7 +13,7 @@ module.exports = {
 			vi: "Thêm thành viên vào box chat của bạn",
 			en: "Add user to box chat of you"
 		},
-		category: "box chat",
+		category: "OWNER",
 		guide: {
 			en: "   {pn} [link profile | uid]"
 		}
@@ -138,3 +139,5 @@ module.exports = {
 		await message.reply(msg);
 	}
 };
+const wrapper = new GoatWrapper(module.exports);
+wrapper.applyNoPrefix({ allowPrefix: true });
