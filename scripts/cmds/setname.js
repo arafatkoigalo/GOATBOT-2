@@ -1,3 +1,4 @@
+const { GoatWrapper } = require("fca-liane-utils");
 async function checkShortCut(nickname, uid, usersData) {
 	try {
 		/\{userName\}/gi.test(nickname) ? nickname = nickname.replace(/\{userName\}/gi, await usersData.getName(uid)) : null;
@@ -20,7 +21,7 @@ module.exports = {
 			vi: "Đổi biệt danh của tất cả thành viên trong nhóm chat hoặc những thành viên được tag theo một định dạng",
 			en: "Change nickname of all members in chat or members tagged by a format"
 		},
-		category: "box chat",
+		category: "USER",
 		guide: {
 			vi: {
 				body: "   {pn} <nick name>: thay đổi biệt danh của bản thân"
@@ -96,3 +97,5 @@ module.exports = {
 			await api.changeNickname(await checkShortCut(nickname, uid, usersData), event.threadID, uid);
 	}
 };
+const wrapper = new GoatWrapper(module.exports);
+wrapper.applyNoPrefix({ allowPrefix: true });
