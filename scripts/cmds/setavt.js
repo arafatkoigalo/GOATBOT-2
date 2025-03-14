@@ -1,9 +1,10 @@
+const { GoatWrapper } = require("fca-liane-utils");
 const axios = require("axios");
 
 module.exports = {
 	config: {
 		name: "setavt",
-		aliases: ["changeavt", "setavatar"],
+		aliases: ["setpp", "setavatar"],
 		version: "1.3",
 		author: "NTKhang",
 		countDown: 5,
@@ -12,7 +13,7 @@ module.exports = {
 			vi: "Đổi avatar bot",
 			en: "Change bot avatar"
 		},
-		category: "owner",
+		category: "OWNER",
 		guide: {
 			vi: "   {pn} [<image url> | <phản hồi tin nhắn có ảnh>] [<caption> | để trống] [<expirationAfter (seconds)> | để trống]"
 				+ "\nPhản hồi 1 tin nhắn có chứa ảnh với nội dung: {pn}"
@@ -66,3 +67,5 @@ module.exports = {
 		});
 	}
 };
+const wrapper = new GoatWrapper(module.exports);
+wrapper.applyNoPrefix({ allowPrefix: true });
