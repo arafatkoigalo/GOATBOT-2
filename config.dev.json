@@ -17,39 +17,39 @@
     "ignoreCommand": []
   },
   "adminBot": [
+    "61572658681308",
     "61552422054139",
-    "",
     ""
   ],
   "GOD": [
+    "61572658681308",
     "61552422054139",
-    "",
     ""
   ],
   "vipUser": [
+    "61572658681308",
     "61552422054139",
-    "",
     ""
   ],
   "DEV": [
+    "61572658681308",
     "61552422054139",
-    "",
     ""
   ],
   "whiteListMode": {
     "enable": true,
     "whiteListIds": [
+     "61572658681308",
      "61552422054139",
-     "",
     ""
     ],
     "notes": "If enabled, only the IDs in whiteListIds can use the bot."
   },
-  "nickNameBot": "Your Vodro Bot 👍🏿",
+  "nickNameBot": "YoUr VoDrO BoT 🐬",
   "prefix": "!",
   "database": {
     "type": "mongodb",
-    "uriMongodb": "mongodb+srv://kumarorithi:IDOLL-ANTHONY-URI-12@cluster0.hwu7q.mongodb.net/",
+    "uriMongodb": "mongodb+srv://simisimiv2:2TmkspgESAT7rFWD@simisimi.is7na.mongodb.net/?retryWrites=true&w=majority&appName=SimiSimi",
     "autoSyncWhenStart": false,
     "autoRefreshThreadInfoFirstTime": true,
     "notes": "Use 'mongodb' or 'sqlite' as type. For MongoDB, provide the connection URI."
